@@ -1,0 +1,11 @@
+[Unit]
+Description=web api with rust.
+After=network.target
+
+[Service]
+WorkingDirectory=/root/rust-web-scraper
+ExecStart=/root/rust-web-scraper/target/release/rust-web-scraper
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

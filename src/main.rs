@@ -1,9 +1,7 @@
 mod models;
 
 use models::{ Body, ChatCompletion, Message };
-
 use std::vec;
-
 use actix_web::{ post, App, web, HttpServer, HttpResponse };
 
 #[post("/chat")]
@@ -45,6 +43,6 @@ async fn chat_with_gpt(body: web::Json<Message>) -> HttpResponse {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| { App::new().service(chat_with_gpt) })
-        .bind(("127.0.0.1", 8080))?
+        .bind(("127.0.0.1", 8032))?
         .run().await
 }
